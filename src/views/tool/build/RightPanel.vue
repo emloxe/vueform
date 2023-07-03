@@ -1015,8 +1015,12 @@ export default {
     };
   },
   watch: {
+    activeData(newVal) {
+      this.activeData_ = newVal;
+    },
+    // eslint-disable-next-line no-unused-vars
     activeData_(newVal) {
-      this.changeActiveData(newVal);
+      // this.$emit("change-activeData", newVal);
     },
   },
   computed: {
@@ -1056,9 +1060,6 @@ export default {
     console.log(this.activeData_);
   },
   methods: {
-    changeActiveData() {
-      this.$emit("change-activeData", this.activeData_);
-    },
     addReg() {
       this.activeData_.regList.push({
         pattern: "",
